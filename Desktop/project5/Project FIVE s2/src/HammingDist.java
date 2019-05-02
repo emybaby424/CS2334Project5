@@ -58,8 +58,16 @@ public class HammingDist extends JFrame{
 		dist4.setBorder(BorderFactory.createLineBorder(only, 1));
 		dist4.setBounds(150,660,100,20);
 
+		text0.setBounds(20,500,120,10);
+		text1.setBounds(20,545,120,10);
+		text2.setBounds(20,585,120,10);
+		text3.setBounds(20,625,120,10);
+		text4.setBounds(20,665,120,10);
 		
-		
+		showLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+		showLabel.setBackground(Color.WHITE);
+		showLabel.setOpaque(true);
+		showLabel.setBounds(25,150,200,250);
 	
 	private void setSlider() { 
 		slider.setBounds(10,25,200,50);		// setting the bound, spaces and color for the slider
