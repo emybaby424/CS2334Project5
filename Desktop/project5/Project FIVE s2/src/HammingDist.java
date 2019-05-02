@@ -1,14 +1,18 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -86,6 +90,16 @@ public class HammingDist extends JFrame{
 	 */
 	private Color color = new Color(50,150,230);
 	
+	/**
+	 * importing the picture
+	 */
+	private BufferedImage picture;
+	/**
+	 * label that will display the picture
+	 */
+	private JLabel pic;
+	
+	
 	public HammingDist() throws IOException{
 		
 	setFrame();		// setting initial frame
@@ -97,6 +111,8 @@ public class HammingDist extends JFrame{
 	setComboBox();		// setting combo box
 	
 	setButtons();	// setting up buttons
+	
+	setImage();		// set image
 	
 	// adding all the buttons to the panel
 	panel1.add(showStation);
@@ -125,6 +141,7 @@ public class HammingDist extends JFrame{
 	panel1.add(sliderValue);
 	panel1.add(showLabel);
 	
+	panel1.add(pic);
 	// adding the panel to the frame
 	this.add(panel1);
 	}
@@ -347,6 +364,15 @@ public class HammingDist extends JFrame{
 	stationList.setBounds(145,410,70,20);
 	}
 	
+	
+	private void setImage() throws IOException{
+		picture = ImageIO.read(new File("project.png"));
+		ImageIcon icon = new ImageIcon(picture);
+		pic = new JLabel(icon);
+		pic.setBounds(270, 100, 300, 500);
+	}
+
+	
 	// setting initial frame
 	private void setFrame() {
 	setTitle("Hamming Distance");
@@ -359,6 +385,8 @@ public class HammingDist extends JFrame{
 	
 	public static void main(String[] args) throws IOException{
 		HammingDist HD = new HammingDist();
+		
+		// making sure everything is visible
 		HD.revalidate();
 		
 	}
