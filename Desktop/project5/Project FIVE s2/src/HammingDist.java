@@ -220,7 +220,47 @@ public class HammingDist extends JFrame{
 			}
 		});
 		
-	
+		// adding action for the calculating hamming distance button
+		calcHD.addActionListener(new ActionListener() {	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				String word = (String)stationList.getSelectedItem();
+				String[] wordOne = word.split("");
+				ArrayList<String> stations = new ArrayList<String>();
+				int[] distCounts = new int[5];
+				
+				// adding stations into arraylist
+				for(int i = 0 ; i < stationList.getItemCount(); ++i) {
+					stations.add(stationList.getItemAt(i));
+				}
+				
+				// comparing stations
+				for(int i = 0; i < stations.size(); ++i) {
+					int counter = 0;
+					String[] wordTwo = stations.get(i).split("");
+					
+					for(int j = 0; j < wordOne.length; ++j) {
+						
+						if(!(wordOne[j].equals (wordTwo[j]))){
+							counter++;
+						}
+					}	
+					distCounts[counter] = distCounts[counter] + 1;
+				}
+				
+				// setting the number of stations to the corresponding text box
+				dist0.setText(Integer.toString(distCounts[0]));
+				dist1.setText(Integer.toString(distCounts[1]));
+				dist2.setText(Integer.toString(distCounts[2]));
+				dist3.setText(Integer.toString(distCounts[3]));
+				dist4.setText(Integer.toString(distCounts[4]));
+				
+				
+			}
+		});
+		
+		
 	}
 
 	private void setComboBox() throws IOException {
