@@ -25,7 +25,7 @@ public class HammingDist extends JFrame{
 		
 		setSlider();	// setting slider
 		
-		//setTextFields();	// setting text fields
+		setTextFields();	// setting text fields
 		
 		//setComboBox();		// setting combo box
 		
@@ -33,6 +33,18 @@ public class HammingDist extends JFrame{
 		
 		// setting initial frame
 	}
+	private void setTextFields() {
+		// default text
+		input.setText("ZERO");
+		
+		// setting bounds for each text and text boxes
+		input.setBounds(150,700,100,25);
+		
+		sliderText.setBounds(15,8,120,15);
+		compareText.setBounds(20,415,120,15);
+		
+	
+		
 	
 	private void setSlider() { 
 		slider.setBounds(10,25,200,50);		// setting the bound, spaces and color for the slider
