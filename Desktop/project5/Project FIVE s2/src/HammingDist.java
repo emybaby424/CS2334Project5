@@ -43,7 +43,22 @@ public class HammingDist extends JFrame{
 		sliderText.setBounds(15,8,120,15);
 		compareText.setBounds(20,415,120,15);
 		
-	
+		dist0.setBorder(BorderFactory.createLineBorder(only, 1));
+		dist0.setBounds(150,495,100,20);
+		
+		dist1.setBorder(BorderFactory.createLineBorder(only, 1));
+		dist1.setBounds(150,535,100,20);
+		
+		dist2.setBorder(BorderFactory.createLineBorder(only, 1));
+		dist2.setBounds(150,585,100,20);
+		
+		dist3.setBorder(BorderFactory.createLineBorder(only, 1));
+		dist3.setBounds(150,625,100,20);
+		
+		dist4.setBorder(BorderFactory.createLineBorder(only, 1));
+		dist4.setBounds(150,660,100,20);
+
+		
 		
 	
 	private void setSlider() { 
