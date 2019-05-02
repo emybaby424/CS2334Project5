@@ -94,10 +94,12 @@ public class HammingDist extends JFrame{
 		
 		setComboBox();		// setting combo box
 		
-		//setButtons();	// setting up buttons
+		setButtons();	// setting up buttons
 		
 		// setting initial frame
 	}
+	
+	
 	private void setTextFields() {
 		// default text
 		input.setText("ZERO");
@@ -135,6 +137,17 @@ public class HammingDist extends JFrame{
 		showLabel.setBounds(25,150,200,250);
 	}
 	
+	private void setButtons() {
+		// setting up the buttons
+		showStation.setBounds(17,100,115,25);
+		calcHD.setBounds(17, 450, 115, 25);
+		addStat.setBounds(17, 700, 115, 25);
+		
+		
+		
+	
+	}
+
 	private void setComboBox() throws IOException {
 		
 		// reading in the data from the text file
