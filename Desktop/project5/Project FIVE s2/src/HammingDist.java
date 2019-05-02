@@ -350,7 +350,7 @@ public class HammingDist extends JFrame{
 	// setting initial frame
 	private void setFrame() {
 	setTitle("Hamming Distance");
-	setSize(400,800);
+	setSize(600,800);
 	panel1 = new JPanel(null);
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setVisible(true);
