@@ -260,9 +260,17 @@ public class HammingDist extends JFrame{
 			}
 		});
 		
-		
+		// adding action for adding station button
+		addStat.addActionListener(new ActionListener() { 
+			@Override 
+			public void actionPerformed(ActionEvent e) { 
+				stationList.addItem(input.getText());	
+			
+			} 
+		 });
 	}
-
+	
+	
 	private void setComboBox() throws IOException {
 		
 		// reading in the data from the text file
