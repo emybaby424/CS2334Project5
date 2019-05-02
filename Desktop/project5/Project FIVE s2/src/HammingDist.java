@@ -1,5 +1,10 @@
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -87,7 +92,7 @@ public class HammingDist extends JFrame{
 		
 		setTextFields();	// setting text fields
 		
-		//setComboBox();		// setting combo box
+		setComboBox();		// setting combo box
 		
 		//setButtons();	// setting up buttons
 		
@@ -129,6 +134,33 @@ public class HammingDist extends JFrame{
 		showLabel.setOpaque(true);
 		showLabel.setBounds(25,150,200,250);
 	}
+	
+	private void setComboBox() throws IOException {
+		
+		// reading in the data from the text file
+		BufferedReader br = new BufferedReader(new FileReader("Mesonet.txt"));
+		
+		// loading the file into the stations list
+		List<String> stations = new ArrayList<String>();
+		try {
+			String line = null;
+			while((line = br.readLine()) != null) {
+				stations.add(line);
+				
+			}
+		}
+		catch(FileNotFoundException e) {	// print error message if the file is not found
+			System.err.println("Error, file Mesonet.txt didn't exist.");
+		}
+		finally {
+			br.close();
+		}
+		
+		// setting bound for combo box, and loading stations into combo box
+		String[] lines = stations.toArray(new String[] {});
+		stationList = new JComboBox<>(lines);
+		stationList.setBounds(145,410,70,20);
+		}
 	
 	private void setSlider() { 
 		slider.setBounds(10,25,200,50);		// setting the bound, spaces and color for the slider
