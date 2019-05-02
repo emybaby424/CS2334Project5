@@ -143,7 +143,82 @@ public class HammingDist extends JFrame{
 		calcHD.setBounds(17, 450, 115, 25);
 		addStat.setBounds(17, 700, 115, 25);
 		
-		
+		// adding action for show station button
+		showStation.addActionListener(new ActionListener() {	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// initialize the text area every time the button is clicked
+				intext.setText("");	
+				
+				// creating Array list for each distance value
+				ArrayList<String> dist1 = new ArrayList<String>();
+				ArrayList<String> dist2 = new ArrayList<String>();
+				ArrayList<String> dist3 = new ArrayList<String>();
+				ArrayList<String> dist4 = new ArrayList<String>();
+
+				// getting the selected Item, and splitting it into an array of letters
+				String temp = (String)stationList.getSelectedItem();
+				String[] wordOne = temp.split("");
+				ArrayList<String> stations = new ArrayList<String>();
+			
+				// adding every station into arraylist stations
+				for(int i = 0 ; i < stationList.getItemCount(); ++i) {
+					stations.add(stationList.getItemAt(i));
+				}
+				
+				// comparing each stations with the selected station, and separating them into the corresponding distance arraylist
+				for(int i = 0; i < stations.size(); ++i) {
+					int counter = 0;
+					String[] wordTwo = stations.get(i).split("");
+					
+					for(int j = 0; j < wordTwo.length; ++j) {
+						if(!(wordOne[j].equals (wordTwo[j]))){
+							counter++;
+						}
+					}	
+					
+					if(counter == 1) {
+						dist1.add(stations.get(i));			
+					}
+					else if(counter ==2) {
+						dist2.add(stations.get(i));
+					}
+					else if(counter==3) {
+						dist3.add(stations.get(i));
+					}
+					else if(counter==4) {
+						dist4.add(stations.get(i));
+					}
+					
+
+				}
+				
+				
+				// printing out the stations with the chosen distances
+				
+					if(slider.getValue() == 1) {  
+						for(int here = 0; here < dist1.size(); here++) {
+							intext.append(dist1.get(here) + '\n');						}
+				}
+					else if(slider.getValue()==2) {
+						for(int here = 0; here < dist2.size(); here++) {
+							intext.append(dist2.get(here) + '\n');						}
+				}
+					else if(slider.getValue()==3) {
+						for(int here = 0; here < dist3.size(); here++) {
+							intext.append(dist3.get(here) + '\n');						}
+				}
+					else if(slider.getValue()==4) {
+						for(int here = 0; here < dist4.size(); here++) {
+							intext.append(dist4.get(here) + '\n');
+						}
+				}
+				
+				
+				
+				
+			}
+		});
 		
 	
 	}
